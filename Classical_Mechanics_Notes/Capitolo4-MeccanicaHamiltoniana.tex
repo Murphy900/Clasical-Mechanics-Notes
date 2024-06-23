@@ -1,0 +1,479 @@
+\setcounter{chapter}{4}
+\chapter{Meccanica Hamiltoniana}
+\section{Introduzione}
+La formulazione delle leggi della meccanica mediante la funzione Lagrangiana, descrive l'evoluzione di un sistema meccanico utilizzando le coordinate di posizione e velocit\'{a} generalizzate che incorporano l'informazione della forza esercitata dai vincoli senza doverne conoscere esplicitamente la forma. Per\`{o} non \`{e} l'unico modo in cui \`{e} possibile descrivere lo stato dinamico di un sistema. Infatti si pu\'{o} studiare un sistema rispetto alle coordinate di posizione e quantit\`{a} di moto generalizzate. La trattazione di problemi utilizzando tale sistema di coordinate costituisce le basi dell'ottica, meccanica quantistica e meccanica statistica. Per passare da un sistema di coordinate indipendenti ad un altro si usa la \textbf{trasformazione di Legendre} che permette di definire una nuova grandezza che descrive l'energia totale del sistema, definita \textbf{Hamiltoniana}. Quanto discusso in questo capitolo presupone che si considerino vincoli olonomi e potenziali dipendenti dalla posizione e/o velocit\'{a}.
+
+\section{Formalismo Hamiltoniano}
+
+Abbiamo visto che introducendo la funzione Lagrangiana $\mathcal{L}(\underline{q}(t),\underline{\dot q}(t),t)$ che descrive una curva nello spazio delle coordinate generalizzate. La minimizzazione del suo funzionale d'azione ci permette di definire le equazioni di Eulero-Lagrange
+
+\begin{equation}
+	\frac{d}{d t} \frac{\partial \mathcal{L}}{\partial \dot{q}_{i}}-\frac{\partial \mathcal{L}}{\partial q_i}=0 \quad \quad \text{i} = 1,...,n
+\end{equation} 	
+La grandezza
+\begin{equation}
+	p_i=\frac{\partial L}{\partial \dot{q}_i} \quad \quad \quad \text{i} = 1,...,n
+\end{equation}
+\`{e} definita \textbf{quantit\`{a} di moto generalizzata} coniugata a $q_i$ (e coincide con la quantit\`{a} di moto nelle coordinate cartesiane). Riscrivendo le equazioni di E-L con questa notazione si ha che la (5.1) diventa:
+\begin{equation}
+	\dot p_i = \frac{\partial L}{\partial \dot{q}_i}
+\end{equation}
+Lo scopo di riscrivere le equazioni in questo modo \`{e} di eliminare le velocit\`{a} generalizzate $\dot q_i$ in favore delle coordinate $p_i$. Il passaggio a $p_i$ ha un ruolo chiave perch\`{e} quando $p_i = 0$ si hanno delle coordinate cicliche, che come vedremo nei paragrafi successivi permettono di risolvere facilmente le equazioni differenziali che definiscono la dinamica del moto nello spazio delle fasi.
+\subsubsection{Richiamo}
+La quantit\`{a} $\{q_i \}$ definisce un punto nello \textit{spazio delle configurazioni C} di dimensione n. La sua evoluzione nel tempo definisce una curva in C. L'evoluzione dinamica del sistema \`{e} descritta dalle coordinate $\{q_i,p_i \}$ definite nello \textit{spazio delle fasi} di dimensione 2n. In tale spazio una cammino non incrocia mai con un altro e l'evoluzione \`{e} dunque governata da un \textit{flusso} che avviene nello spazio delle fasi.
+
+ 
+\begin{figure}[ht]
+\vspace{0.1in}
+\includegraphics[scale = 0.5]{phase}	
+\centering
+\vspace{0.1in}
+\caption{Moto nello spazio delle configurazioni (sinistra) e nello spazio delle fasi (destra)}
+\end{figure}
+
+
+\subsection{Equazioni di Hamilton}
+Vogliamo determinare una funzione definita sullo spazio delle fasi che descriva in modo univoco l'evoluzione rispetto a $q_i$ e $p_i$. Questo vuol dire che deve essere in funzione di $q_i$ e $p_i$ e debba contenere la stessa informazione data dalla Lagrangiana $\mathcal{L}(\underline{q}(t),\underline{\dot q}(t),t)$. Per farlo utilizziamo una trasformazione di coordinate definita trasformazione di Legendre.
+Definiamo la funzione \textbf{Hamiltoniana} come la trasformata di Legendre della Lagrangiana rispetto alle variabili $\dot q_i$.
+\begin{equation}
+	H\left(q_i, p_i, t\right)=\sum_{i=1}^n p_i \dot{q}_i-L\left(q_i, \dot{q}_i, t\right)
+\end{equation}
+Dove l'ipotesi fondamentale \`{e} data dal fatto che dalla relazione (5.2) sia possibile determinare $\dot q_i(q_i,p_i,t)$, ovvero si richiede che la trasformazione di coordinate sia invertibile rispetto alle $\dot q_i$.\newline
+La variazione di H \`{e} data da:
+\begin{equation}
+	d H=\left(d p_i \dot{q}_i+p_i d \dot{q}_i\right)-\left(\frac{\partial L}{\partial q_i} d q_i+\frac{\partial L}{\partial \dot{q}_i} d \dot{q}_i+\frac{\partial L}{\partial t} d t\right)
+\end{equation}
+\begin{equation*}
+	=d p_i \dot{q}_i-\frac{\partial L}{\partial q_i} d q_i-\frac{\partial L}{\partial t} d t
+\end{equation*}
+Il differenziale di sinistra pu\`{o} essere riscritto come
+\begin{equation}
+	d H=\frac{\partial H}{\partial q_i} d q_i+\frac{\partial H}{\partial p_i} d p_i+\frac{\partial H}{\partial t} d t
+\end{equation}
+l'uguaglianza ottenuta ci permetter di definire un sistema di equazione di 2n equazioni differenziali del primo ordine che prendono il nome di \textbf{equazioni di Hamilton}
+\begin{align}
+	\begin{cases}
+	\dot{p}_i  =-\frac{\partial H}{\partial q_i} \\
+	\dot{q}_i  =\frac{\partial H}{\partial p_i} \\
+	\frac{\partial L}{\partial t} = -\frac{\partial H}{\partial t}
+	\end{cases}	
+\end{align}	
+Rispetto alle equazioni di E-L che definivano un sistema di N equazioni differenziali del secondo ordine
+abbiamo costruito un sistema di 2N equazioni differenziali del primo ordine.\newline
+Si nota che la funzione di Hamilton coincide con l'energia del sistema E($q,\dot q, t$) data dall'\textbf{integrale di Jacobi} per la Lagrangiana di un sistema.
+
+\subsection{Esempi}
+
+\subsubsection{1) Particella in un potenziale}
+
+Consideriamo una particella che si muove in un potenziale centrale in uno spazio a 3 dimensioni. La Lagrangiana sar\`{a} data da
+\begin{equation*}
+	L = \dfrac{1}{2}|\underline{\dot x}|^2 - U(\underline{x})
+\end{equation*}
+Le equazioni di E-L associate sono:
+\begin{align}
+	\begin{cases}
+		\ddot x_1 = -\dfrac{dU(\underline{x})}{dx_1} \\
+		\quad \;\,\vdots \\
+		\ddot x_n = -\dfrac{dU(\underline{x})}{dx_n} 
+	\end{cases}
+	\quad \iff \quad
+	\begin{cases}
+		\dot x_1 = y_1 \\
+		\dot y_1 = -\frac{dU(\underline{x})}{dx_i}\\
+		\quad \;\,\vdots \\
+		\dot x_n = y_n \\
+		\dot y_n = - \frac{dU(\underline{x})}{dx_n}
+	\end{cases}
+\end{align}	
+Usando la relazione (5.2) e (5.4) otteniamo
+\begin{equation*}
+	p=\frac{\partial \mathcal{L}}{\partial \dot{x}}=\dot{x} \quad \quad  \quad H=p \dot{x}-\mathcal{L}(x, \dot{x}(x, p))
+\end{equation*}
+dunque la Hamiltoniana associata al sistema \`{e} data da 
+\begin{equation*}
+H=p^2-\frac{p^2}{2}+U(x)=\frac{p^2}{2}+U(x)	
+\end{equation*}
+usando le equazioni in (5.7) definiamo le equazioni di Hamilton del sistema dinamico 
+\begin{align*}
+	\begin{cases}
+		\dot x_i=p_i \\
+		\dot p_i=-U^{\prime}(\underline{x})
+	\end{cases}
+	\quad i = 1,...,n
+\end{align*}
+posto $y_i = p_i$ nelle equazioni in (5.8) si ha che le equazioni di Hamilton e di E-L sono equivalenti tra loro.
+
+\subsubsection{2) Invertibilit\`{a} delle velocit\`{a} generalizzate}
+
+La Lagrangiana di un sistema \`{e} data da
+\begin{equation*}
+	\mathcal{L}=\frac{1}{2} g(q) \dot{q}^2-U(q)
+\end{equation*}
+dove g(q) \`{e} una funzione delle coordinate generalizzate e la quantit\`{a} di moto generalizzata \`{e} esprimibile come
+\begin{equation*}
+	p=g(q) \dot{q} \quad \text{dove} \quad g(q)>0 
+\end{equation*}
+di conseguenza la trasformazione di coordinate \`{e} invertibile, infatti
+\begin{equation*}
+	\dot q(q,p) = \dfrac{p}{g(q)}
+\end{equation*}
+e la Hamiltoniana associata al sistema pu\`{o} essere riscritta come
+\begin{equation*}
+	H = \dfrac{p^2}{2g(q)} + U(q)
+\end{equation*}
+dove le rispettive equazioni di Hamilton sono date da
+\begin{align*}
+	\begin{cases}
+\frac{d u}{d t}=\frac{p}{g(q)} \\
+ \frac{d}{d t} p=\frac{1}{2}\frac{g^{\prime}(q)}{g^2(q)} p^2-\frac{\partial}{\partial q} U \\
+	\end{cases}
+\end{align*}
+\vspace{0.1in}
+
+\begin{theorem}[Equivalenza Eq. E-L ed Hamilton ]
+Le equazioni di Eulero-Lagrange sono equivalenti alle equazioni di Hamilton.
+\end{theorem}
+
+\begin{proof}
+Partiamo da un Hamiltoniana definita rispetto ad un Lagrangiana indipendente dal tempo $\frac{\partial \mathcal{L}}{dt} = 0$ e consideriamo uno spazio delle configurazioni C in una sola dimensione. La variazione della funzione di Hamilton sar\`{a} descritta dal differenziale
+
+\begin{equation*}
+	d H(q, p, t)=\frac{\partial H}{\partial q} d q+\frac{\partial H}{\partial p} d p
+\end{equation*}
+\newline
+ricordando che $\dot q (q,p,t)$ si ha che l'equazione precedente \`{e} equivalente a 
+\begin{equation*}
+	d(p \dot{q}-\mathcal{L}(q, \dot{q}, t))= pd\dot q +dp \dot q - \dfrac{\partial \mathcal{L}}{\partial q}dq - \dfrac{\partial \mathcal{L}}{\partial \dot q}d \dot q =
+\end{equation*}
+\begin{equation*}
+	= pd\dot q +dp \dot q - \dfrac{\partial \mathcal{L}}{\partial q}dq - pd \dot q = \dot q dp - \dfrac{\partial \mathcal{L}}{\partial q}dq
+\end{equation*}
+\newline
+dalle equazioni di E-L abbiamo che $\frac{d}{dt} \big [ \frac{\partial \mathcal{L}}{\partial \dot q} \big ] =\frac{\partial \mathcal{L}}{\partial  q} $ dunque l'uguaglianza precedente pu\`{o} essere riscritta come
+\begin{equation*}
+	=\dot q dp - \dfrac{d}{dt} \Big [\dfrac{\partial \mathcal{L}}{\partial \dot q} \Big ]dq = \dot q dp  + (- \dot p)dq
+\end{equation*}
+in conclusione otteniamo 
+\begin{align*}
+	\begin{cases}
+	\dot{p}_i  =-\frac{\partial H}{\partial q_i} \\
+	\dot{q}_i  =\frac{\partial H}{\partial p_i} \\
+	\end{cases}
+\end{align*}
+\end{proof}
+
+\begin{proof}
+	Si consideri dim[C] $>1$ procediamo come nel caso in una dimensione definendo il differenziale dell'Hamiltoniana
+\begin{equation*}
+	d H=\sum_{j=1}^n \frac{\partial H}{\partial q_j} d q_j+\sum_{j=1}^n \frac{\partial H}{\partial p_j} d p_j+\frac{\partial H}{\partial t}
+\end{equation*}
+le j-sime equazioni possono essere riscritte come 
+	\begin{alignat*}{2}
+		\dfrac{\partial H}{\partial q_j}=\sum_i^n p_i \dfrac{\partial \dot{q}_i}{\partial q_j}-\dfrac{\partial \mathcal{L}}{\partial q_j}-\sum_{i=1}^n \dfrac{\partial \mathcal{L}}{\partial \dot{q}_j} \dfrac{\partial \dot{q}_i}{\partial q_j} = -\dfrac{\partial \mathcal{L}}{\partial q_j}+\underbrace{\sum_{i=1}^n \frac{\partial \dot{q}_i}{\partial q_j}\left[\frac{\partial \mathcal{L}}{\partial \dot{q}_i}-p_i\right]}_{=0} \\[0.05cm]
+		\dfrac{\partial H}{\partial p_j}=\sum_i^n \dot{q}_i \dfrac{\partial p_i}{\partial p_j}+\sum_i^n p_i \dfrac{\partial \dot{q}_i}{\partial p_j}-\sum_i^n \dfrac{\partial \mathcal{L}}{\partial \dot{q}_i} \dfrac{\partial \dot{q}_i}{\partial p_j} = \dot{q}_j + \underbrace{\sum_i^n \frac{\partial \dot{q}_i}{\partial p_j}\left[\frac{\partial \mathcal{L}}{\partial \dot{q}_i}-p_i\right]}_{=0}\\[0.05cm]
+		\dfrac{\partial H}{\partial t}=-\dfrac{\partial \mathcal{L}}{\partial t}-\sum_i^n \dfrac{\partial \mathcal{L}}{\partial \dot{q}_i} \dfrac{\partial \dot{q}_i}{\partial t}+\sum_i^n p_i \dfrac{\partial \dot{q}_i}{\partial t} = -\dfrac{\partial \mathcal{L}}{\partial t}+\underbrace{\sum_{i=1}^n \frac{\partial \dot{q}_i}{\partial t}\left[\dfrac{\partial \mathcal{L}}{\partial \dot{q}_i}-p_i\right]}_{=0}
+	\end{alignat*}
+di conseguenza si ottiene un sistema di 2N equazioni differenziali al primo ordine.
+\end{proof}
+
+\subsection{Leggi di conservazione}
+
+\begin{lemma}
+Se $\frac{\partial H}{\partial t} = 0$ allora H \`{e} una costante del moto
+\end{lemma}
+
+\begin{lemma}
+	Se una coordinata trascurabile q non compare nella Lagrangiana allora per costruzione non apparte nemmeno nella Hamiltoniana. I momenti coniugati $p_q$ associati a q sono conservati.
+\end{lemma}
+
+\subsection{Momenti coniugati rispetto alla trasformazione di Legendre}
+
+\begin{theorem}
+Se la Lagrangiana di un sistema \`{e} rappresentabile come
+\begin{equation}
+	\mathcal{L} = \frac{1}{2} \sum_{\alpha, \beta}  G_{\alpha, \beta}  \cdot \dot{q}_\alpha \;\dot{q}_\beta-U = \frac{1}{2} \langle \underline{\dot q},G \underline{\dot q}\rangle - \;U
+\end{equation}
+dove G(q) \`{e} una matrice simmetrica ed invertibile associata all'energia cinetica del sistema $\Rightarrow$ si ha che il vettore dei momenti coniugati e le velocit\`{a} generalizzate possono essere scritte come
+\begin{equation}
+	\underline{p} = G(\underline{q})\cdot \underline{\dot q} \quad \text{e} \quad \dot q = G^{-1}(p) \cdot \underline p
+\end{equation}
+\end{theorem}
+
+\subsubsection{Esempio}
+La trasformata di Legendre definita da una Lagrangiana della forma come in (5.9) \'{e} data da
+\begin{align*}
+	 p \dot{q}=\frac{1}{2}\left\langle\dot{q}, G_{\dot{q}}\right\rangle+U &=\\
+	&=\left\langle p, G^{-1} p\right\rangle-\frac{1}{2}\left\langle G^{-1} p, G G^{-1} p\right\rangle+U=\\
+	&=\left\langle p, G^{-1} p\right\rangle-\frac{1}{2}\left\langle p, G^{-1} p\right\rangle+U
+\end{align*}
+dunque la Hamiltoniana associata \`{e} data da 
+\begin{equation*}
+	H = \dfrac{1}{2}\left\langle p, G^{-1} p\right\rangle + U
+\end{equation*}
+
+\begin{remark}
+Data una matrice simmetrica invertibile, l'inversa \`{e} ancora una matrice simmetrica e $(G^{-1})^T = (G^T)^{-1}$.
+\end{remark}
+
+\subsection{Il principio di minima azione}
+
+Consideriamo un punto $(q,\dot q) \in \Omega \subseteq \mathbb{R}^{2N}$ elemento dello spazio delle fasi, abbiamo che l'evoluzione della posizione del punto q nel tempo
+\begin{equation}
+	q : [t_0,t_1] \rightarrow \mathbb{R} \quad \text{t.c} \quad  q(t_0) = q_0 \quad \text{e} \quad q(t_1) = q_1
+\end{equation}
+definisce un cammino nello spazio delle configurazioni. Il numero di cammini che uniscono due punti nello spazio \`{e} infinito, dunque non \`{e} univoco, ci domandiamo quale sia il reale cammino che congiunge le due posizioni. Per rispondere a tale domanda introduzione una grandezza che \`{e} data dal funzionale d'azione.
+
+\begin{equation}
+	S: \mathcal{C}_{0,1} \rightarrow \mathbb{R} 	
+\end{equation}
+\begin{equation*}
+	q \mapsto S[q] 
+\end{equation*}
+definita sullo spazio dei cammini, che \`{e} uno spazio affine modellato su uno spazio vettoriale di dimensione infinita. Dove 
+\begin{equation}
+	S\left[q(t)\right]=\int_{t_i}^{t_f} \mathcal{L}\left(q(t), \dot{q}(t)\right) d t
+\end{equation}
+e $\mathcal{L}$ definisce la Lagrangiana del sistema associata. L'azione  ha una propriet\`{a} significativa rispetto ai cammini di un sistema, ovvero il cammino effettivamente percorso dal sistema coincide con il suo estremo inferiore. 
+\begin{lemma}
+	Sia g(t) una funzione continua e derivabile in $[t_0,t_1]$ tale che $\forall \,h(t)$ continua in $[t_0,t_1]$ se 
+	\begin{equation*}
+		\int_{t_0}^{t_1}h \cdot g \;dt = 0 \Rightarrow g = 0
+	\end{equation*}
+	\end{lemma}
+	\begin{proof}
+	Sia $g(t) \neq 0$ allora esiste $\tau \in [t_0,t_1]$ tale che $g(\tau) > A $ dove $A>0$ per continuit\`{a} della funzione deve esiste un intorno dove g \`{e} al di sopra di A. Consideriamo un cammino h per cui il $g\cdot h > 0 \;\; \forall \;t$, in particolare in un intervallo di misura non nullo. Allora avremo che 
+	\begin{equation*}
+		\int_{\alpha}^{\beta}g \cdot h \,dt \neq 0
+	\end{equation*}
+	poich\`{e} l'integrale di una funzione positiva su un insieme di misura non nulla \`{e} non nullo. Di conseguenza l'unico caso possibile \`{e} che g = 0.
+	
+	\end{proof}
+
+\begin{theorem}[\textbf{Principio di minima azione}]
+
+Se  $q(t_0)=q_0$ e $q(t_1) =q_1$ per $t \in [t_0,t_1]$ allora esiste un cammino q(t) tra i due punti che rende stazionario (minimo) il funzionale d'azione.
+\end{theorem}
+\begin{proof}
+	Sia $q \in \mathcal{C}_{0,1}$ e h una variazione, allora $q+\varepsilon h \in \mathcal{C}_{0,1}$ calcoliamo il rapporto incrementale del funzionale d'azione rispetto alla direzione di variazione
+	\begin{equation*}
+		\lim _{\varepsilon \rightarrow 0} \frac{S[q+ \varepsilon h]-S[q]}{\varepsilon}=\langle\delta S, h\rangle	
+	\end{equation*}
+	tale grandezza prende il nome di \textbf{differenziale d'azione} calcolato rispetto h, possiamo riscrivere tale equazione come
+	\begin{flalign*}
+		\langle\delta S, h\rangle  & =\lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\int_{t_0}^{t_1} d t \mathcal{L}(q+\varepsilon h, \dot{q}+\varepsilon \dot{h}, t)-\mathcal{L}(q, \dot{q}, t)\right]= &\\[1.2em]
+		&=\lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\int_{t_0}^{t_1} dt \, \mathcal{L}(q, \dot{q}, t)+\frac{\partial \mathcal{L}}{\partial q} \varepsilon h+\frac{\partial \mathcal{L}}{\partial \dot{q}} \varepsilon \dot{h}+0(\varepsilon)-\mathcal{L}(q, \dot{q}, t)\right]= &\\[1.2em]
+		&=\int_{t_0}^{t_1} \frac{\partial \mathcal{L}}{\partial q} h d t + \underbrace{\int_{t_0}^{t_1} \frac{\partial \mathcal{L}}{\partial \dot{q}} \dot{h} d t}_{\text { integrando per parti }}=
+		\int_{t_0}^{t_1} \frac{\partial \mathcal{L}}{\partial q}\,h + \frac{\partial \mathcal{L}}{\partial \dot{q}}\,h \Big \vert_{t_0}^{t_1} - \int_{t_0}^{t_1} \Big( \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}} \Big)h dt = &\\[1.2em]
+		&=\int_{t_0}^{t_1} h\left(\frac{\partial L}{\partial q}-\frac{d}{d t} \frac{\partial L}{\partial \dot{q}}\right) d t 
+	\end{flalign*}
+	Se q(t) \`{e} soluzione dell'equazione di Eulero-Lagrange allora $\langle \delta S,h \rangle = 0$.\newline
+	Viceversa se il differenziale d'azione \`{e} nullo per una variazione h, applicando il Lemma 5.2.5 abbiamo che l'unico caso possibile \`{e} che 
+	\begin{equation*}
+		\frac{\partial L}{\partial q}-\frac{d}{d t} \frac{\partial L}{\partial \dot{q}} = 0
+	\end{equation*}
+	e dunque q(t) soddisfa le equazioni di E-L
+	
+\end{proof}
+
+
+\begin{theorem}[\textbf{Non univocit\'{a} del differenziale d'azione}]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Formulazione variazionale delle equazioni di Hamilton}
+
+Si \`{e} definita l'azione come 
+\begin{equation*}
+	S[q]=\int_{t_0}^{t_1} L\left(q_i, \dot{q}_i, t\right) d t
+\end{equation*}
+poich\`{e} Hamiltoniana e Lagrangiana sono legate dalla trasformata di Legendre possiamo invertire tale relazione per riscrivere il funzionale d'azione come 
+\begin{equation}
+	S[q]=\int_{t_0}^{t_1}\left(p_i \dot{q}_i-H\right) d t
+\end{equation}
+Applicando il teorema 5.2.8 andiamo ricercare i punti che rendono stazionaria l'azione
+\begin{flalign*}
+\delta S & =\int_{t_0}^{t_1}\left\{\delta p_i \dot{q}_i+p_i \delta \dot{q}_i-\frac{\partial H}{\partial p_i} \delta p_i-\frac{\partial H}{\partial q_i} \delta q_i\right\} d t \\[1.2em]
+& =\int_{t_0}^{t_1}\left\{\left[\dot{q}_i-\frac{\partial H}{\partial p_i}\right] \delta p_i+\left[-\dot{p}_i-\frac{\partial H}{\partial q_i}\right] \delta q_i\right\} d t+\left[p_i \delta q_i\right]_{t_0}^{t_1}
+\end{flalign*}
+dove il termine $p_i\delta \dot{q_i}$ \`{e} stato integrato per parti, ovvero
+
+\begin{equation*}
+	\int_{t_0}^{t_1}p_i\delta \dot{q}_i \,dt = p_i\delta q_i \vert_{t_0}^{t_1} - \int_{t_0}^{t_1} \dot {p}_i \delta q \,dt
+\end{equation*}
+di conseguenza abbiamo che il differenziale d'azione S \`{e} nullo quando
+\begin{equation*}
+	\dot{q}_i=\frac{\partial H}{\partial p_i} \quad \text { e } \quad \dot{p}_i=-\frac{\partial H}{\partial q_i}
+\end{equation*}
+dobbiamo imporre alle condizioni al contorno che l'ultimo addendo dell'equazione sia nulla ovvero 
+\begin{equation*}
+	\delta q_i(t_0) = \delta q_i(t_1) = 0
+\end{equation*}
+Notare che imponendo tale condizione $\delta p_i$ sono libere di variare a piacimento, non rendendo simmetrico il formalismo. Volendo potremmo imporre la condizione anche sulle $\delta p_i$, ma cos\`{i} facendo restringeremmo ancora di pi\`{u} i cammini possibili.
+
+\section{Parentesi di Poisson}
+
+\begin{definition}
+	Siano f(q,p) e g(q,p) due funzione definite sullo spazio delle fasi si definisce \textbf{parentesi di Poisson}
+	\begin{equation}
+		\{f, g\}=\frac{\partial f}{\partial q_i} \frac{\partial g}{\partial p_i}-\frac{\partial f}{\partial p_i} \frac{\partial g}{\partial q_i}
+	\end{equation}
+\end{definition}
+\noindent Le parentesi di Poisson godono delle seguenti propriet\`{a}:
+\begin{itemize}
+	\item Antisimmetria: $\{f,g\}$ = $-\{g,f \}$
+	\item Bilinearit\`{a}: $\{\alpha f+\beta g, h\}=\alpha\{f, h\}+\beta\{g, h\}$  per ogni $\alpha,beta \in \mathbb{R}$
+	\item Regola di Leibniz: $\{f g, h\}=f\{g, h\}+\{f, h\} g$ che deriva dalla chain rule della differenziazione.
+	\item Identit\`{a} di Jacobi: $\{f,\{g, h\}\}+\{g,\{h, f\}\}+\{h,\{f, g\}\}=0$
+\end{itemize}
+
+\begin{lemma}
+	Si consideri il punto $(q_1,...,q_n,p_1,..,p_n)\in \mathcal{F} \times \mathbb{R}$ nello spazio delle fasi e la Hamiltoniana H che definisce le eq. del moto 
+\begin{align*}
+	\begin{cases}
+	\dot{p}_i  =-\frac{\partial H}{\partial q_i} \\
+	\dot{q}_i  =\frac{\partial H}{\partial p_i} \\
+	\end{cases}	
+\end{align*}	
+data una grandezza fisica $F(q_1,...,q_n,p_1,...,p_n)$ definita sullo spazio delle fasi, la sua derivata totale(overo l'evoluzione temporale di posizioni e momenti) pu\`{o} essere scritta come 
+\begin{equation}
+	\dfrac{dF}{dt} = \Big \{F,H \Big\} + \dfrac{\partial F}{\partial t}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\frac{d F}{d t} & = \sum_{i = 1}^N\frac{\partial F}{\partial p_i} \dot{p}_i+ \sum_{i=1}^N\frac{\partial f}{\partial q_i} \dot{q}_i+\frac{\partial F}{\partial t} \\[0.5em]
+& = \sum_{i=1}^N \Big [\frac{\partial F}{\partial q_i} \frac{\partial H}{\partial p_i} -\frac{\partial F}{\partial p_i} \frac{\partial H}{\partial q_i} \Big ] + \frac{\partial F}{\partial t} \\[0.5em]
+& =\{f, H\}+\frac{\partial f}{\partial t}
+\end{align*}
+\end{proof}
+\noindent Con l'uso delle parentesi di Poisson dotiamo le variabili dinamiche che descrivono l'evoluzione di un sistema nella meccanica Hamiltoniana di una struttura algebrica. Utilizzando tale notazione le equazioni di Hamilton assumono una forma simmetrica tra le posizioni e i momenti coniugati.
+
+\begin{align}
+	\left\{\begin{array}{l}
+		\dot{q_j}=\left\{q_j, H\right\} \\
+		\dot{p_j}=\left\{p_j, H\right\}
+	\end{array}\right.
+	\quad j=1,...N
+\end{align}
+\vspace{0.1in}
+\begin{definition}
+	Si definisce costante del moto una funzione I definita sullo spazio delle fasi tale per cui
+	\begin{equation}
+		\Big \{ I,H \Big \}=0
+	\end{equation}
+	so dice che I ed H \textbf{commutano rispetto Poisson}. 
+\end{definition}
+
+\subsubsection{Esempio}
+
+Si ipotizzi che $q_i$ sia una coordinata ignorabile (per esempio non compare in H) allora 
+\begin{equation*}
+	\Big \{ p_i,H \Big \} = 0
+\end{equation*}
+essa esprime la relazione tra coordinate ignorabili e le quantit\`{a} conservabili nel linguaggio delle parentesi di Poisson. 
+\newline
+\begin{remark}
+	Se I e J sono costanti del moto allora $\{\{I,J\},H\} + \{I,\{J,H\}\} + \{\{I,H\},J\} = 0$ e dunque anche $\{I,J\}$ \`{e} una costante del moto. Si dice che le costanti del moto formano un algebra chiusa rispetto alle parentesi di Poisson.
+\end{remark}
+
+\section{Trasformazioni Canoniche}
+
+Le equazioni di Hamilton possono essere riscritte in un modo che risultino pi\`{u} simmetriche. Definiamo il vettore $\vec{x} = (q_1,...,q_n,p_1,....,p_n)^T$ di dimensione 2N e la matrice J di grandezza $2N \times 2N$,
+
+\begin{align}
+\mathcal{J}=\left[\begin{array}{ccccc}
+0 & 1 & & & 0 \\
+-1 & 0 & & & \\
+& & \ddots & & \\
+& & & 0 & 1 \\
+0 & & & -1 & 0
+\end{array}\right]
+= \left[\begin{array}{cc}
+		\underline{0} & I_n \\
+		-I_n & \underline{0}
+\end{array} \right]
+\end{align}
+dove $I_n$ \`{e} la matrice identica di dimensione $n \times n$. Nella notazione compatta ogni entrata \`{e} una matrice $n \times n$. La matrice $\mathcal{J}$ \`{e} definita come la \textbf{matrice simplettica}. In questa notazione le equazioni di Hamilton possono essere riscritte come 
+\begin{equation}
+	\underline{\dot{x}} = \mathcal{J} \cdot \nabla_{\underline{x}} H
+\end{equation}
+In meccanica Lagrangiana si \`{e} visto come \`{e} possibile effettuare un cambio di coordinate da $q_i \rightarrow Q(q_i)$ senza cambiare la forma delle equazioni. Nella formulazione Hamiltoniana vogliamo estendere il concetto di trasformazione di coordinate per le posizioni $q_i$ e i momenti $p_i$ in un nuovo sistema $P_i$ e $Q_i$ per mezzo di un insieme di equazioni invertibili
+
+\begin{align}
+	\begin{array}{c}
+		Q_i = Q_i(q,p,t)\\[0.5em]
+		P_i = P_i(q,p,t)
+	\end{array}	
+\end{align}
+dove le nuove coordinate sono funzione sia delle vecchie coordinate che anche dei momenti coniugati. Come nel caso Lagrangiano ci domandiamo quale classe di trasformazioni ci permetta di lasciare invariate le equazioni di Hamilton. Consideriamo una trasformazione
+\begin{equation*}
+	x_i \mapsto y_i(x)
+\end{equation*}
+applicando la relazione (5.20) si ha che 
+\begin{equation*}
+	\dot{y}_i = \sum_{j=1}^{2N}\dfrac{\partial y_i}{\partial x_j}\dot{x}_j = \sum_{j=1}^{2N}\dfrac{\partial y_i}{\partial x_j} \mathcal{J}_{jk} \dfrac{\partial H}{\partial y_l}\dfrac{\partial y_l}{\partial x_k}
+\end{equation*}
+in modo compatto pu\`{o} essere riscritto come
+
+\begin{equation*}
+	\dot{y} = (J \mathcal{J} J^T) \nabla_yH
+\end{equation*}
+dove J \`{e} la matrice Jacobiana associata alla trasformazione di coordinate. Le equazioni di Hamilton sono invarianti in forma rispetto allo Jacobiano di una trasformazione se J soddisfa le condizioni
+
+\begin{equation}
+	J\mathcal{J}J^T = \mathcal{J} \quad \Rightarrow \quad \frac{\partial y_i}{\partial x_j} \mathcal{J}_{j k} \frac{\partial y_l}{\partial x_k}=\mathcal{J}_{i l}
+\end{equation}
+\newline
+Se lo Jacobiano J soddisfa l'equazione (5.22) viene definito \textbf{simplettico}.
+ Un cambio di coordinate in cui Jacobiano risulta essere simplettico viene definito \textbf{trasformazione canonica}.
+ \newline 
+ Nei paragrafi successivi vedremo che esiste un metodo efficace per costruire trasformazioni canoniche usando le funzioni generatrici.
+\newline
+\begin{theorem}
+Le parentesi di Poisson sono invariati sotto l'azione delle trasformazioni canoniche. Viceversa ogni trasformazione che preserva la struttura delle parentesi di Poisson, affinch\`{e}
+\begin{equation}
+	\left\{Q_i, Q_j\right\}=\left\{P_i, P_j\right\}=0 \quad \text { e } \quad\left\{Q_i, P_j\right\}=\delta_{i j}
+\end{equation}
+\`{e} canonica
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\subsection{Funzioni generatrici per la trasformazioni canoniche}
+
+Nel capitolo di meccanica Lagrangiana si \`{e} visto come due descrizioni diverse tra loro dello stesso sistema fisico sono equivalenti se le rispettive Lagrangiane che lo descrivono differiscono tra loro per una derivata totale del tipo $\frac{d F(q,t)}{dt}$. \newline
+
+\begin{theorem}[\textbf{Equivalenza equazioni E-L}]
+	Siano $\tilde{L} (Q,\dot{Q},t)$ la Lagrangiana del sistema rispetto a delle coordinate Q e $L(q,\dot{q},t)$la Lagrangiana rispetto ad un sistema in coordinate q, allora descrivono il medesimo sistema fisico se 
+	\begin{equation}
+		\tilde{L} (Q,\dot{Q},t) = \lambda L(q,\dot{q},t) - \dfrac{dF(q,Q,t)}{dt}
+	\end{equation}
+\end{theorem}
+\begin{remark}
+Il segno meno all'interno dell'equazione (5.24) \`{e} per convenzione. Inoltre solo per $\lambda = 1$ si rappresenta una trasformazione canonica.
+\end{remark}
+
+\begin{proof}
+Utilizziamo la definizione di Azione integrando l'equazione (5.24)
+
+\begin{equation*}
+	\int_{t_1}^{t_2} \tilde{L} d t=\int_{t_1}^{t_2} L d t+F\left(q\left(t_1\right), Q\left(t_1\right), t_1\right)-F\left(q\left(t_2\right), Q\left(t_2\right), t_2\right) .
+\end{equation*} 
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+ 
