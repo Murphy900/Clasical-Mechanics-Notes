@@ -462,18 +462,535 @@ Il segno meno all'interno dell'equazione (5.24) \`{e} per convenzione. Inoltre s
 Utilizziamo la definizione di Azione integrando l'equazione (5.24)
 
 \begin{equation*}
-	\int_{t_1}^{t_2} \tilde{L} d t=\int_{t_1}^{t_2} L d t+F\left(q\left(t_1\right), Q\left(t_1\right), t_1\right)-F\left(q\left(t_2\right), Q\left(t_2\right), t_2\right) .
+	S[q,Q]=\int_{t_1}^{t_2} \tilde{L} d t=\int_{t_1}^{t_2} L d t+F\left(q\left(t_1\right), Q\left(t_1\right), t_1\right)-F\left(q\left(t_2\right), Q\left(t_2\right), t_2\right) 
 \end{equation*} 
+Riscriviamo il funzionale d'azione come
+\begin{equation*}
+	\tilde{S} -S  = \int_{t_0}^{t_1} (\tilde{L} -L) \, dt =   F\left(q\left(t_1\right), Q\left(t_1\right), t_1\right)-F\left(q\left(t_2\right), Q\left(t_2\right), t_2\right) 
+\end{equation*}
+Consideriamo un incremento infinitesimo $\varepsilon$ nella direzione $\underline{h}$ avremo che la variazione del funzionale $\tilde{S}-S $ \`{e} pari a 
 
+\begin{align*}
+	&\delta(\tilde{S}-S) = \lim_{\varepsilon \rightarrow 0} (\tilde{S}-S)[q+\varepsilon h] - (\tilde S-S)[q]= & \\[0.1in]
+	&\lim_{\varepsilon \rightarrow 0} F(q(t_{1})+\epsilon h)- F(q(t_{2})+ \varepsilon h) - F\left(q\left(t_1\right), t_1\right)+F\left(q\left(t_2\right), t_2\right)= 0& \\[0.1in]
+	& \Rightarrow \delta \tilde{S} = \delta S
+\end{align*}
+Dunque le equazioni di E-L definite dalle due Lagrangiane sono le medesime.
+\end{proof}
 
+\begin{remark}
+Anche se le due funzioni Lagrangiane sono diverse da loro descrivono il medesimo sistema dato che definiscono le stesse equazioni di Eulero-Lagrange. 
+\end{remark}
+
+La funzione F pu\`{o} essere usata partendo da una Lagrangiana per generarne una nuova, che fornisce una descrizione equivalente a quella di partenza del sistema fisico.\newline
+Poich\`{e} la Hamiltoniana \`{e} esprimibile come trasformata di Legendre della Lagrangiana quanto espresso rispetto alle equazioni di E-L \`{e} estendibile alle equazioni di Hamilton.
+\begin{equation}
+	K = \dot{Q}P - \dot{q}p + H + \frac{dF(q,Q,t)}{dt}
+\end{equation}
+con la comparsa di termini in pi\`{u} e condizioni al contorno. Definendo la 1-forma differenziale
+\begin{equation}
+	dF =  pdq - PdQ + (K-H)dt
+\end{equation}
+\subsection{Cambi di coordinate}
+
+Consideriamo di avere un sistema nelle coordinate (Q,P) e di voler passare alle coordinate (p,q) per farlo definiamo una funzione
+
+\begin{align*}
+	\begin{cases}
+		Q = Q(q,p)\\
+		P = P(q,p)\\
+	\end{cases}
+\end{align*}
+
+Affinch\`{e} la trasformazione sia un cambio di coordinate deve essere invertibile, ovvero $det J \neq 0$ dove J \`{e} la matrice Jacobiana.
+
+\begin{align}
+J = 
+\left [ \begin{array}{cc}
+		\dfrac{\partial Q}{\partial q} & \dfrac{\partial Q}{\partial p} \\ [0.2in]
+		\dfrac{\partial P}{\partial q} & \dfrac{\partial P}{\partial p} \\
+	\end{array}\right ]
+\end{align}
+\newline
+
+\noindent La matrice Jacobiana associata al cambio di coordinate \`{e} di fondamentale importanza in quanto le condizioni sulle sue componenti definiscono condizione necessaria e sufficiente affich\`{e} una funzione F sia una funzione generatrice di una trasformazione canonica, ovvero che le parentesi di Poisson siano preservate.
+
+\subsection{Jacobiano e condizione di canonicit\`{a}}
+\noindent Definiamo il passaggio di coordinate 
+
+\begin{align*}
+	\begin{cases}
+		p = p(q,Q)\\
+		P = P(q,Q)\\
+	\end{cases}
+\end{align*}
+verifichiamo che le parentesi di Poisson siano preservate
+
+\begin{equation}
+	\{Q,P\} = \left(\frac{\partial P}{\partial p}\right)_q\left(\frac{\partial Q}{\partial q}\right)_p-\left(\frac{\partial P}{\partial q}\right)_p\left(\frac{\partial Q}{\partial p}\right)_q
+\end{equation}
+possiamo riscrivere alcuni addendi nel seguente modo
+
+\begin{equation}
+	\left(\frac{\partial P}{\partial p}\right)_q=\left(\frac{\partial P}{\partial Q}\right)_q\left(\frac{\partial Q}{\partial p}\right)_q
+\end{equation}
+e
+\begin{equation*}
+	\left(\frac{\partial P}{\partial q}\right)_p=\left(\frac{\partial P}{\partial q}\right)_Q+\left(\frac{\partial P}{\partial Q}\right)_q\left(\frac{\partial Q}{\partial q}\right)_p
+\end{equation*}
+sostituendo all'interno dell'espressione (5.28) della parentesi di Poisson possiamo riscriverla come
+
+\begin{equation}
+	\{Q,P\} = -\left(\frac{\partial Q}{\partial p}\right)_q\left(\frac{\partial P}{\partial q}\right)_Q = \left(\frac{\partial Q}{\partial p}\right)_q\left(\frac{\partial p}{\partial Q}\right)_q = 1
+\end{equation}
+Il passaggio 
+\begin{equation*}
+	\left(\frac{\partial P}{\partial q}\right)_Q = -\left (\frac{\partial p}{\partial Q}\right)_q
+\end{equation*}
+si \`{e} ottenuta come condizione di canonicit\`{a} dall'espressione (5.20) e l'inveritibilit\`{a} del cambio di coordinate.
+\newline
+Osservando la struttura della (5.28) e della (5.29) si ha che posto 
+\begin{equation}
+	\frac{\partial Q}{\partial p} = 0
+\end{equation} 
+elemento della matrice Jacobiana la parentesi di Poisson non viene preservata e dunque non si ottiene una trasformazione di coordinate che preserva la matrice simplettica.
+Resta da determinare come tali informazioni si leghino alla scelta della funzione generatrice.
+
+\subsection{Funzione generatrice di I specie}
+
+Definiamo funzione generatrice del primo tipo una funzione $F_1$(q,Q,t) associata ad un cambio di coordinate
+\begin{align*}
+	\begin{cases}
+		p = p(q,Q)\\
+		P = P(q,Q)\\
+	\end{cases}
+\end{align*}
+consideriamo la il differenziale totale associato alla funzione 
+
+\begin{equation}
+	\frac{d F(\mathbf{q}, \mathbf{Q}, t)}{d t}=\left[\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial \mathbf{q}} \cdot \dot{\mathbf{q}}+\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial \mathbf{Q}} \cdot \dot{\mathbf{Q}}\right]+\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial t}
+\end{equation}
+sostituendo nella relazione (5.26)
+\begin{align*}
+	&\left[\mathbf{p}-\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial \mathbf{q}}\right] \cdot \dot{\mathbf{q}}-H(\mathbf{q}, \mathbf{p}, t)= & \\[0.4cm]
+	&=\left[\mathbf{P}+\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial \mathbf{Q}}\right] \cdot \dot{\mathbf{Q}}-K(\mathbf{Q}, \mathbf{P}, t)+\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial t}
+\end{align*}
+affinch\`{e} la Hamiltoniana nelle nuove coordinate descriva il medesimo sistema fisico e la trasformazione sia canonica si deve avere che 
+\begin{equation}
+	K(\mathbf{Q}, \mathbf{P}, t)=H(\mathbf{q}, \mathbf{p}, t)+\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial}
+\end{equation}
+di conseguenza si deve avere che 
+\begin{equation}
+	\begin{cases}
+	\mathbf{p}=\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial \mathbf{q}} \\
+	 \mathbf{P}=-\frac{\partial F_1(\mathbf{q}, \mathbf{Q}, t)}{\partial \mathbf{Q}}\\
+	 K = H + \frac{\partial F_1}{\partial t}
+	\end{cases}
+\end{equation}
+Condizione necessaria e sufficiente affinch\`{e} la trasformazione sia canonica \`{e}
+\begin{equation}
+	\frac{\partial Q}{\partial p} \neq  0
+\end{equation}	
+Inoltre si estende quanto discusso alla funzione $F_1(q,Q,t)$ affinch\`{e} sia una funzione generatrice, prendendo l'equazione (5.30) e sostituendo rispetto a (5.34)
+\begin{equation}
+	\{Q,P\} = -\left(\frac{\partial Q}{\partial p}\right)_q\left(\frac{\partial P}{\partial q}\right)_Q = \left(\frac{\partial Q}{\partial p}\right)_q \frac{\partial^2 F_1}{\partial q \partial Q } = 1
+\end{equation}
+\newline
+Affinch\`{e} le parentesi di Poisson siano preservate \`{e} necessario che
+\begin{equation}
+	\frac{\partial^2 F_1}{\partial q \partial Q } \neq 0
+\end{equation} 
+\begin{remark}
+Dunque dimostrare che la componente $J_{12}$ \`{e} della matrice Jacobiana \`{e} non nulla, per quanto discusso nella sezione precedente equivale a dimostrare che $F_1$ \`{e} una funzione generatrice del primo tipo. 	
+\end{remark}
+
+\subsection{Funzione generatrice del II tipo}
+
+Procedendo come per le funzioni del primo tipo, definiamo una funzione $F = F_2(q,P,t) - QP $ associata alla trasformazione di coordinate 
+\begin{equation}
+\begin{cases}
+	p = p(q,P)\\
+	Q = Q(q,P)
+\end{cases}
+\end{equation}
+il differenziale della funzione \`{e} dato da 
+\begin{equation}
+	dF_2 = pdq +QdP + (K-H)dt
+\end{equation}
+e 
+\begin{equation}
+	{dF_2(q,P,t)}= \frac{\partial F_2}{\partial q}dq +\frac{\partial F_2}{\partial P}dP + \frac{\partial F_2}{\partial t}dt
+\end{equation}
+di conseguenza le coordinate canoniche (5.38) possono essere riscritte come
+
+\begin{align}
+	\begin{cases}
+		p = \frac{\partial F_2}{\partial q} \\
+		Q = \frac{\partial F_2}{\partial P} \\
+		K = H + \frac{\partial F_2}{\partial t}
+	\end{cases}
+\end{align}
+Condizione necessaria e sufficiente affinch\`{e} una trasformazione canonica ammetta funzione generatrice di seconda specie \`{e}
+\begin{equation}
+	\frac{\partial P}{\partial p} \neq 0
+\end{equation}
+che per quanto discusso in precedenza equivale a porre una condizione su $F_2(q,P,t)$ del tipo
+
+\begin{equation}
+	\frac{\partial F_2(q,P,t)^2}{\partial q \partial P} \neq 0
+\end{equation}
+
+\subsection{Funzione generatrice del III tipo}
+
+Definiamo una funzione del terzo tipo $F = F_3(p,Q,t) + qp$ associata ad una trasformazione canonica 
+\begin{align}
+	\begin{cases}
+		q = q(p,Q)\\
+		P = p(p,Q)
+	\end{cases}
+\end{align}
+
+il differenziale della funzione F \`{e} dato da
+
+\begin{equation}
+	dF_3 = -q d p-P d Q+(K-H) d t
+\end{equation}	
+e 
+\begin{equation}
+	dF_3 = \frac{\partial F_3}{\partial p} d p+\frac{\partial F_3}{\partial Q}dQ +\frac{\partial F_3}{\partial t} d t
+\end{equation}
+le coordinate della trasformazione canonica associata assumono la forma 
+\begin{align}
+	\begin{cases}
+		q = - \frac{\partial F_3}{\partial p}\\
+		P = - \frac{\partial F_3}{\partial Q}\\
+		K = H + \frac{\partial F_3}{\partial t}
+	\end{cases} 
+\end{align}
+Condizione necessaria e sufficiente affinch\`{e} le parentesi di Poisson siano preservate \`{e}
+\begin{equation}
+	\frac{\partial Q}{\partial q} \neq 0
+\end{equation}
+che equivale a imporre una condizione sulla funzione $F_3$ 
+\begin{equation}
+	\frac{\partial F_3(p,Q,t)}{\partial p \partial Q } \neq 0
+\end{equation}
+
+\subsection{Funzione generatrice del IV tipo}
+
+Definiamo funzione generatrice del quarto tipo una funzione $F = F_4(p,P,t) + qp - QP $ associata alla trasformazione canonica
+\begin{align}
+	\begin{cases}
+		q = q(p,P)\\
+		Q = Q(p,P)
+	\end{cases}
+\end{align}
+studiando il differenziale della funzione generatrice otteniamo 
+\begin{equation}
+	dF_4 = \frac{\partial F_4}{\partial p} d p+\frac{\partial F_4}{\partial P}dP +\frac{\partial F_4}{\partial t} d t
+\end{equation}
+e 
+\begin{equation}
+	dF_4 = -qdp + QdP + (K-H)dt  
+\end{equation}
+e di conseguenza la trasformazione (5.50) \`{e} uguale a  
+\begin{equation}
+	q = -\frac{\partial F_4}{\partial p}\\
+	Q = \frac{\partial F_4}{\partial P}
+	K = H + \frac{\partial F_4}{\partial t}
+\end{equation}
+
+Affinch\`{e} la trasformazione preservi le parentesi di Poisson deve valere la seguente condizione sugli elementi della matrice Jacobiana associata 
+\begin{equation}
+	\frac{\partial P}{\partial q} \neq 0
+\end{equation}
+ed estesa alla funzione generatrice $F_4$ diventa 
+\begin{equation}
+	\frac{\partial F_4}{ \partial p \partial P}\neq 0
+\end{equation}
+
+\renewcommand\arraystretch{1.6}
+\begin{align*}
+\begin{array}{|c|c|}
+\hline \text { Funzione generatrice } & \text { Trasformazione  } \\
+\hline \hline F_1(q, Q, t) & p_i=\frac{\partial F_1}{\partial q_i}, P_i=-\frac{\partial F_1}{\partial Q_i} \\
+\hline F_2(q, P, t) - QP & p_i=\frac{\partial F_2}{\partial q_i}, Q_i=\frac{\partial F_2}{\partial P_i} \\
+\hline F_3(p, Q, t) + qp & q_i=-\frac{\partial F_3}{\partial p_i}, P_i=-\frac{\partial F_3}{\partial Q_i} \\
+\hline F_4(p, P, t) +qp -QP & q_i=-\frac{\partial F_4}{\partial p_i}, Q_i=\frac{\partial F_4}{\partial P_i} \\
+\hline
+\end{array}
+\end{align*}
+\newline
+\begin{remark}
+	Quanto discusso per due variabili \`{e} generalmente estendibile a pi\`{u} dimensioni.
+\end{remark}
+
+\section{Trasformazioni di Contatto}
+
+Si consideri un sistema Hamiltoniano con in coordinate $(\vec{q},\vec{p})$ definiamo la trasformazione con pi\`{u} di un grado di libert\`{a} 
+\begin{align}
+	\left\{\begin{array}{l}
+Q_k=Q_k\left(q_1, \ldots, q_d\right) \\
+P_k=\sum_{j=1}^{d} A_{k j}\left(q_1, \ldots q_d\right)p_j
+\end{array}\right.
+\end{align}
+allora valgono i seguenti risultati:
+\begin{enumerate}
+	\item La trasformazione \`{e} canonica se e soltanto se 
+	\begin{equation}
+		J_{(q,Q)} = ({A^{-1}})^T
+	\end{equation}
+	\item La funzione generatrice \`{e} del secondo tipo e ha la forma
+	\begin{equation}
+		F_2(q,P) = \sum_{j=1}^d Q_j(\vec{q})P_j
+	\end{equation}
+\end{enumerate}
+trasformazioni di questo tipo in cui $P_k$ \`{e} esprimibile come combinazione lineare delle $\vec{p}$ \`{e} e le $Q_k$ dipendono solo da $\vec{q}$ vengono chiamate \textbf{trasformazioni di contatto}.
+\begin{proof}
+La matrice Jacobiana associata alla trasformazione di coordinate \`{e} della forma 
+\begin{align}
+J = 
+\left [\begin{array}{ccc}
+	J_{(q,Q)} & \quad \vline & \underline{0}\\
+	\hline 
+	\star & \quad \vline &A(\vec{q})\\
+\end{array}\right ]
+\end{align} 
+affinch\`{e} la trasformazione sia una trasformazione di coordinate \`{e} necessario che sia invertibile ovvero $detJ \neq 0$, il determinane della matrice  Jacobiania \`{e} dato da 
+\begin{equation}
+	detJ = det (J_{(q,Q)})det(A(\vec{q})) \neq 0
+\end{equation}
+ci\`{o} implica che $det(A(\vec{q})) \neq 0$, tale risultato coincide con la condizione necessaria e sufficiente affinch\`{e} la trasformazione ammetta una funzione generatrice del secondo tipo (inoltre $A(\vec{q})$ \`{e} invertibile).
+Dati tali risultati possiamo riscrivere la trasformazione (5.56) come 
+\begin{align}
+	\begin{cases}
+		Q_k = \frac{\partial F_2}{\partial P_k}\\
+		p_k = \sum_{j=1}^{d} A^{-1}_{kj}(\vec{Q})P_j = \frac{\partial F_2}{\partial q_k} 
+	\end{cases}
+\end{align}
+integrando il primo membro otteniamo la forma di $F_2$
+\begin{equation}
+	F_{2}^{k} = \int Q_kdP_k = Q_kP_k + G(\vec{q},\vec{P})
+\end{equation}
+risolvendo le prime d equazioni avremo che 
+\begin{equation}
+	F_2 = \sum_{j=1}^{d} Q_jP_j + \phi(\vec{q})
+\end{equation}
+sostituendo rispetto al secondo membro della (5.62) abbiamo che 
+\begin{equation}
+	\sum_{j=1}^{d} A^{-1}_{kj}(\vec{Q})P_j = \sum_{j=1}^d \frac{\partial Q_j}{\partial q_k}P_j + \frac{\partial \phi(\vec {q})}{\partial q_k}  
+\end{equation}
+per avere che $\phi (\vec{q})$ sia una soluzione comune a tutte le equazioni \`{e} necessario che sia una funzione costante e dunque $\frac{\partial \phi(\vec {q})}{\partial q_k} = 0$, di conseguenza la (5.64) diventa 
+\begin{equation}
+	\sum_{j=1}^{d} A^{-1}_{kj}(\vec{Q})P_j = \sum_{j=1}^d\frac{\partial Q_j}{\partial q_k}P_j 
+\end{equation}
+da (5.65) abbiamo che 
+\begin{equation}
+	A^{-1}_{kj}(\vec{Q}) = \frac{\partial Q_j}{\partial q_k}
+\end{equation}
+ovvero gli elementi della matrice inversa di A coincidono con gli elementi della matrice Jacobiana trasposta, la (5.65) pu\`{o} essere riscritta in modo compatto come
+\begin{equation}
+	A^{-1} \cdot \vec{P} = J_{(q,Q)}^{T} \cdot \vec{P}
+\end{equation}
+di conseguenza poich\`{e} l'operazione di trasposizione gode della propriet\`{a} d'idempotenza si ha 
+\begin{equation}
+	J_{(q,Q)} = (A^{-1})^{T}
+\end{equation}
+Inoltre dato che $\frac{\partial \phi(\vec {q})}{\partial q_k} = 0$ la (5.63) diventa 
+\begin{equation}
+	F_2 = \sum_{j=1}^{d} Q_jP_j
+\end{equation}
+\end{proof}
+
+\section{Hamiltoniane esplicitamente dipendenti dal tempo ed estensione dello spazio delle fasi}
+
+Consideriamo un sistema dinamico descritto da una funzione Hamiltoniana esplicitamente dipendente dal tempo 
+\begin{equation}
+	H = H(q,p,t) \quad \Big (\frac{\partial H}{\partial t} \neq 0 \Big )
+\end{equation}
+le rispettive equazioni di Hamilton saranno date da
+\begin{align}
+	\begin{cases}
+		\dot{q_j} = \frac{\partial H}{\partial p_j}\\
+		\dot{p_j} = - \frac{\partial H}{\partial q_j}\\
+		\frac{dH}{dt} = \frac{\partial H}{\partial t}
+	\end{cases} \quad j = 1,...n
+\end{align}
+le grandezze fisiche associate saranno definite sullo \textbf{spazio delle fasi} ovvero saranno  funzioni esplicitamente dipendenti dal tempo e della forma
+\begin{equation}
+	G(q,p,t) : \mathcal{I} \times \mathbb{R^+} \rightarrow \mathbb{R}
+\end{equation}
+dalla relazione (5.16) sappiamo che la derivata totale di una funzione G \`{e} data da 
+\begin{equation}
+	\frac{d G}{dt} = \Big \{ G,H \Big \} + \frac{\partial G}{\partial t}
+\end{equation}
+che descrive l'evoluzione di G(q,p,t). \`{E} possibile definire uno \textbf{spazio delle fasi esteso} $\mathcal{I} \times \mathbb{R}^2_+$ introducendo due parametri (E,s) che ci permettono di riscrivere le equazioni di Hamilton esplicitamente dipendenti dal tempo in un nuovo sistema rispetto al quale sono indipendenti dalla variabile temporale.
+Per le nuove variabili introdotte (E,s) deve valere che 
+\begin{align}
+	\{E,s \} = 1 \quad \{E,q_j \} = \{E,p_j\} = 0 \\
+	\{s,q_j \} = \{s,p_j\} = 0 
+\end{align}
+Dai risultati precedenti si possono definire i due seguenti teoremi:
+
+\begin{theorem} Data un Hamiltoniana H(q,p,t) esplicitamente dipendente dal tempo, dati due parametri (E,s) si pu\`{o} estendere la Hamiltoniana H sullo spazio delle fasi esteso definendola come 
+\begin{equation}
+	\mathcal{H}(q,p,E,s) = H(q,p,s)-E
+\end{equation} 
+Allora la nuova Hamiltoniana ottenuta e le rispettive equazioni di Hamilton non dipendono pi\`{u} esplicitamente dal tempo.
+\end{theorem}
+\begin{proof}
+Data $\mathcal{H}$(q,p,E,s) = H(q,p,s) - E le rispettive equazioni di Hamilton si scrivono come
+\begin{align}
+	\begin{cases}
+		\dot{q_j} = \frac{\partial H(q,p,s)}{\partial p_j}\\
+		\dot{p_j} = - \frac{\partial H(q,p,s)}{\partial q_j}\\
+		\frac{dE}{dt} = \frac{\partial H(q,p,s)}{\partial s}\\
+		\frac{ds}{dt} = -\frac{\partial H(q,p,s)}{\partial E}
+	\end{cases} \quad j = 1,...n
+\end{align}
+le equazioni di Hamilto date dal sistema (5.77) rispetto alla Hamiltonina $\mathcal{H}$ non dipendono esplicitamente dal tempo. Inoltre $\frac{ds}{dt} = -1$ che integrando si ottiene $s \equiv t$, usando tale risultato abbiamo che le equazioni di Hamilton nello spazio esteso diventano
+\begin{align}
+	\begin{cases}
+		\dot{q_j} = \frac{\partial H(q,p,s)}{\partial p_j}\\
+		\dot{p_j} = - \frac{\partial H(q,p,s)}{\partial q_j}\\
+		\frac{dE}{dt} = \frac{dH(q,p,t)}{dt} =  \frac{\partial H(q,p,t)}{\partial t}
+	\end{cases}
+\end{align}
+in questo modo si riottiene il sistema di equazioni esplicitamente dipendente dal tempo.
 
 \end{proof}
 
+\begin{theorem}
+	Consideriamo una grandezza fisica 
+	\begin{equation*}
+		G(q,p,t) : \mathcal{I} \times \mathbb{R}^+ \rightarrow \mathbb{R}
+	\end{equation*}
+	definita sullo spazio delle fasi, se introduciamo dei parametri (E,s) tale grandezza \`{e} definibile sullo spazio delle fasi esteso come
+	\begin{equation}
+		\mathcal{G}(q,p,s): \mathcal{I} \times \mathbb{R}^2_+ \rightarrow \mathbb{R}
+	\end{equation}
+eliminando la dipendenza esplicita dal tempo, allora l'evoluto dinamico di tale quantit\`{a} rispetto ai nuovi parametri sar\`{a} dato da 
+\begin{equation}
+	\frac{d\mathcal{G}}{dt} = \{\mathcal{G},\mathcal{H} \}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Sviluppiamo la parentesi di Poisson 
+\begin{equation}
+	\{\mathcal{G},\mathcal{H} \} = \sum_{j=1}^n \frac{\partial \mathcal{G}}{\partial q_j} \frac{\partial \mathcal{H}}{\partial p_j}-\frac{\partial \mathcal{G}}{\partial p_j} \frac{\partial \mathcal{H}}{\partial q_j}+\frac{\partial \mathcal{G}}{\partial E} \frac{\partial \mathcal{H}}{\partial s}-\frac{\partial \mathcal{G}}{\partial s} \frac{\partial \mathcal{H}}{\partial E}
+\end{equation}
+dalla dimostrazione del teorema precedente sappiamo che $\frac{\partial \mathcal{H}}{\partial E} = -1$ e dunque $s \equiv t$ inoltre $\frac{\partial \mathcal{G}}{\partial E} = 0 $, e per le relazioni del sistema (5.77) ci si riconduce all'espressione  
+\begin{equation*}
+	\frac{d G}{dt} = \Big \{ G,H \Big \} + \frac{\partial G}{\partial t}
+\end{equation*}
+\end{proof}
+
+\section{Risoluzione di un problema di Cauchy con l'utilizzo delle trasformazioni canoniche e le equazioni di Hamilton}
+
+Consideriamo il seguente problema di Cauchy rispetto alle coordinate (q,p)
+\begin{align}
+	\begin{cases}
+		\dot{q} = \frac{p}{q^4}\\
+		\dot{p} = \frac{2p^2}{q^4}-q^2\\
+		q(0) = 1\\
+		p(0) = 0 \\
+	\end{cases}
+\end{align}
+Determininiano la Hamiltoniana H(q,p) associata al problema di Cauchy, ovvero imponiamo che 
+\begin{align}
+	\begin{cases}
+		\dot{q} = \frac{p}{q^4} = \frac{\partial H}{\partial p}\\
+		\dot{p} = \frac{2p^2}{q^4}-q^2 = -\frac{\partial H}{\partial q}\\
+	\end{cases}
+\end{align}
+ integrando la prima equazione rispetto dp abbiamo
+ \begin{equation}
+ 	H = \frac{p^2}{2q^4} + G(q)
+ \end{equation}
+ sostituendo in nella seconda relazione in (5.83)
+ \begin{equation}
+	\frac{2p^2}{q^4}-q^2 = \frac{2p^2}{q^4} - G^{\prime}(q)
+ \end{equation}
+ e dunque 
+ \begin{equation}
+G(q) = \int_{0}^{q} q^2dq = \frac{q^3}{3} 	
+ \end{equation}
+ed in conclusione sostituendo in (5.84) la Hamiltoniana H \`{e} della forma 
+\begin{equation}
+	H(q,p) = \frac{1}{2}\,\frac{p^2}{q^4} + \frac{q^3}{3} 
+\end{equation}
+Possiamo interpretare la relazione (5.87) come l'energia totale del sistema, data dalla somma dell'energia cinetica e dell'energia potenziale
+\begin{equation}
+	H(q,p) = T(q,p) + U(q)
+\end{equation}
+La struttura di H ci suggerisce di applicare una trasformazione canonica di contatto, ovvero della forma 
+\begin{equation}
+	\begin{cases}
+		Q = U(q)\\
+		P = P(q,p)\\
+	\end{cases} \iff
+	\begin{cases}
+		Q = \frac{q^3}{3} \\
+		P = P(q,P)\\
+	\end{cases}
+\end{equation}
+Affinch\`{e} la trasformazione sia canonica \`{e} necessario che le parentesi di Poisson siano preservate
+\begin{equation*}
+	\{Q,P\} = \frac{\partial Q}{\partial q}\frac{\partial P}{\partial p}= q^2 \frac{\partial P}{\partial p} = 1 \Rightarrow \frac{\partial P}{\partial p} = \frac{1}{q^2}
+\end{equation*}
+integrando si ha 
+\begin{equation}
+	P(q,p) = \frac{p}{q^2}
+\end{equation}
+dunque la trasformazione di contatto \`{e} data da
+\begin{equation}
+\begin{cases}
+		Q = \frac{q^3}{3} \\
+		P = \frac{p}{q^2}\\
+\end{cases}
+\end{equation}
+Determiniamo la nuova Hamiltonia K(Q,P) rispetto alle nuove coordinate definendo la trasformazione canonica inversa e andando a sostituire nella Hamiltoniana H(q,p) determinata nell'equazione (5.87)
+\begin{equation}
+	\begin{cases}
+		q = [3Q]^{1/3}\\
+		p = P[3Q]^{3/2}\\
+	\end{cases}
+\end{equation}
+dunque K(Q,P) \`{e} uguale ad 
+\begin{equation}
+	K(Q,P) = \frac{1}{2}\;P^2 + Q
+\end{equation}
+definiamo le equazioni di Hamilton rispetto alla Hamiltoniana K
+\begin{equation}
+	\begin{cases}
+		\dot{Q} = \frac{\partial K}{\partial P}=P\\
+		\dot{P} = - \frac{\partial K}{\partial Q} = -1
+	\end{cases}
+\end{equation}
+il problema di Cauchy nelle nuove coordinate \`{e} dato da 
+\begin{equation}
+	\begin{cases}
+		\dot{Q} = \frac{\partial K}{\partial P}=P\\
+		\dot{P} = - \frac{\partial K}{\partial Q} = -1\\
+		Q(0) = \frac{1}{3}\\
+		P(0) = 0
+	\end{cases}
+\end{equation}
+integrando le equazioni rispetto al tempo ed effettuando le opportune sostituzioni 
+\begin{equation}
+	\begin{cases}
+		Q = Q(0) + \int_{0}^{t} Pdt = \frac{1}{3} - \int_{0}^{t} tdt = \frac{1}{3} - \frac{1}{2} \,t^2\\
+		P = -t 
+	\end{cases}
+\end{equation}
+sostituendo nella (5.92) otteniamo la soluzione rispetto al problema di Cauchy di partenza dato da (5.82)
+\begin{equation}
+\begin{cases}
+	q = \left[1-\frac{3}{2} t^2\right]^{1 / 3} \\
+	p = -t\left[1-\frac{3}{2} t^2\right]^{2 / 3}\\
+	\end{cases}
+\end{equation}
+
+\section{Trasformazioni Canoniche Infinitesime}
 
 
-
-
-
-
-
- 
