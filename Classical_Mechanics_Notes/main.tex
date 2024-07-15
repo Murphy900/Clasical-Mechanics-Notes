@@ -1,4 +1,5 @@
 \documentclass[11pt,a4paper]{book}
+\usepackage{pdfpages}
 \pagenumbering{arabic} 
 \usepackage{titlesec}
 \usepackage{setspace}
@@ -23,10 +24,10 @@
 \fancyhead[RO,LE]{\leftmark} 
 \fancyhead[RE,LO]{}
 \usepackage{hyperref}
-
+\usepackage{bm}
 \hypersetup{
     colorlinks=true,
-    linkcolor=cyan,
+    linkcolor=magenta,
     filecolor=magenta,      
     urlcolor=blue,
     pdftitle={Statistics and Probability},
@@ -60,7 +61,13 @@
 
 
 \begin{document}
+\includepdf[pages = 1,fitpaper]{copertina.pdf}
 \tableofcontents
-\input{Capitolo3-CorpoRigido}
-\input{Capitolo4-MeccanicaHamiltoniana}
+
+\input{Capitolo1-Leggi_di_Newton}
+\include{Capitolo2-Sistemi_Dinamici}
+\input{Capitolo3-Meccanica-Lagrangiana}
+\input{Capitolo4-CorpoRigido}
+\input{Capitolo5-MeccanicaHamiltoniana}
+\input{AppendiceA-Spazio_SO3}
 \end{document}

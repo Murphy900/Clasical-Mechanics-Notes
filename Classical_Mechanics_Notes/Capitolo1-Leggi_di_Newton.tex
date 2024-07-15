@@ -1,0 +1,147 @@
+\setcounter{chapter}{0}
+\chapter{Leggi del Moto di Newton}
+
+\section{Meccanica Newtoniana - Particella singola}
+
+Una particella (o punto materiale) \`{e} un costrutto che in fisica viene usato per descrivere la dinamica di un oggetto da un punto di vista macroscopico trascurandone la forma e tenendo in considerazione solo massa \textit{m}. Nonostante questa semplificazione non permetta di descrivere il comportamento dei corpi estesi \`{e} sufficiente per delineare un comportamento macroscopico del corpo considerato.
+\newline
+
+Il moto di una particella di massa \textit{m} e posizione \textbf{r} \`{e} governato dalla \textit{seconda legge di Newton} \textbf{F} = m\textbf{a} o in modo pi\`{u} preciso
+\begin{equation}
+	\textbf{F}(\textbf{r},\dot{\textbf{r}}) = \frac{d\textbf{p}}{dt}
+\end{equation}
+dove \textbf{F} \`{e} una forza che in generale dipende sia da posizione che velocit\`a (come per esempio le forza d'attrito viscoso) e \textbf{p} \`{e} la quantit\`{a} di moto (o momento). L'equazione (1.1) \`{e} una forma pi\`{u} generale della seconda legge di Newton in quanto tiene anche conto del fatto che \textit{m}(t) in alcuni tipi di problemi. Inoltre definisce un EDO del primo ordine, e dunque date le condizioni iniziali di \textbf{r}(t) e $\dot{\textbf{r}}$(t) per t=$t_0$ possiamo risolvere l'equazione per quadrature determinando \textbf{r}(t) per ogni tempo t.
+
+Uno dei problemi della descrizione della dinamica fornita dalle leggi di Newton \`{e} data dal fatto che l'equazione (1.1) dipende dal sistema di riferimento rispetto a cui \`{e} definita e assume tale forma solo se il sistema \`{e} inerziale. Un sistema di riferimento viene definito inerziale se questo si muove di moto uniforme rispetto ad un sistema fisso in cui \`{e} presente l'osservatore.
+
+\subsection{Momento Angolare e Momento della Forza}
+Definiamo il \textit{momento angolare} \textbf{L} e \textit{momento della forza} $\bm{\tau}$ di una particella le grandezze
+\begin{equation}
+	\bm{L}=\bm{r} \times \bm{p} \quad, \quad \bm{\tau}=\bm{r} \times \bm{F}
+\end{equation}
+notare che a differenza della quanti\`{a} di moto, sia \textbf{L} che $\bm{\tau}$ dipendono da dove si \`{e} scelta l'origine del sistema di riferimento. Il momento angolare ricopre lo stesso ruolo della quanti\`{a} di moto per sistemi in rotazione e infatti si lega al momento della forza mediante la relazione
+\begin{equation}
+	\bm{\tau} = \frac{d L}{dt}
+\end{equation}
+definendo la seconda legge di Newton rispetto ai sistemi in rotazione.
+
+\subsection{Leggi di Conservazione}
+Dalle equazioni (1.1) e (1.3) discendono due importanti leggi di conservazione
+\begin{itemize}
+	\item Se \textbf{F} = 0 allora \textbf{p} \`{e} costante durante il moto.
+	\item Se $\bm{\tau}$ = 0 allora \textbf{L} \`{e} costante durante il moto.
+\end{itemize}
+Si noti che $\bm{\tau} = 0$ non implica necessariamente che \textbf{F} = 0, ma si potrebbe anche avere che la forza \`{e} ortogonale al braccio delle forza \textbf{r}. Tale risultato \`{e} la definizione di \textit{forza centrale}. Per quanto queste leggi conservazione risultino essere triviali, si vedr\`{a} come nella formulazione Lagrangiana tali risultati risultino come propriet\`{a} di simmettria dello spazio.
+
+\subsection{Energia}
+
+Definiamo \textit{energia cinetica} T la qauntit\`{a}
+\begin{equation}
+	T = \frac{1}{2}m \,\dot{\bm{r}} \cdot \dot{\bm{r}} 
+\end{equation}
+La variazione di energia cinetica del tempo \`{e} esprimibile come
+\begin{equation}
+	\frac{dT}{dt} = \dot{\bm{p}} \cdot \bm{F} = \bm{F} \cdot \dot{\bm{r}}
+\end{equation}
+Se la particella di muove dalla posizione $\bm{r}_1$ al tempo $t_1$ alla posizione $\bm{r}_2$ al tempo $t_2$ si ha che la variazione dell'energia cinetica \`{e} data da 
+\begin{equation}
+T\left(t_2\right)-T\left(t_1\right)=\int_{t_1}^{t_2} \frac{d T}{d t} d t=\int_{t_1}^{t_2} \mathbf{F} \cdot \dot{\mathbf{r}} d t=\int_{\mathbf{r}_1}^{\mathbf{r}_2} \mathbf{F} \cdot d \mathbf{r}
+\end{equation}
+che coincide con l'integrale della Forza lungo un camino e prende anche il nome di \textit{lavoro} compiuto dalla forza \textbf{F}. Definiamo una \textit{forza conservativa} se dipende solo dalla posizione \textbf{r} e il lavoro svolto \`{e} indipendente dal percorso. Per un percorso chiuso si ha che il lavoro svolto dalla forza \`{e} nullo.
+\begin{equation}
+\oint \mathbf{F} \cdot d \mathbf{r}=0 \quad \Leftrightarrow \quad \nabla \times \mathbf{F}=0
+\end{equation}
+dove la seconda equazioni esprime il fatto che il campo \`{e} \textit{irrotazionale}. Se una forza \`{e} conservativa possiamo esprimerla come 
+\begin{equation}
+\mathbf{F}=-\nabla V(\mathbf{r})
+\end{equation}
+dove V(\textbf{r}) rappresenta l'energia \textit{potenziale}. Quando si ha una forza di questo tipo si ha necessariamente la conservazione dell'energia totale del sistema.
+\begin{equation}
+T\left(t_2\right)-T\left(t_1\right)=-\int_{\mathbf{r}_1}^{\mathbf{r}_2} \nabla V \cdot d \mathbf{r}=-V\left(t_2\right)+V\left(t_1\right)
+\end{equation}
+che riscriviamo come 
+\begin{equation}
+T\left(t_1\right)+V\left(t_1\right)=T\left(t_2\right)+V\left(t_2\right) \equiv E
+\end{equation}
+di conseguenza la quantit\`{a} E = T + V \`{e} una costante del moto.
+
+\section{Meccanica Newtoniana - Sistemi di Particelle}
+
+In un sistema composto da particelle dobbiamo tenere conto della forza d'interazione tra di esse, dunque possiamo decomporre la forza agente su un i-esimo punto materiale in forza esterna e forza interna
+\begin{equation}
+\mathbf{F}_i=\sum_{j \neq i} \mathbf{F}_{i j}+\mathbf{F}_i^{\mathrm{ext}}
+\end{equation}
+dove $\bm{F}_{ij}$ \`{e} la forza agente tra la i-esima e j-esima particella, mentre $\bm{F}_{i}^{ext}$ \`{e} la forza esterna agenete sulla i-esima particella. La forza totale agente sul sistema costituito da N particelle sar\`{a} data da
+\begin{equation}
+\begin{aligned}
+\sum_i \mathbf{F}_i & =\sum_{i, j \text { with } j \neq i} \mathbf{F}_{i j}+\sum_i \mathbf{F}_i^{\text {ext }} \\
+& =\sum_{i<j}\left(\mathbf{F}_{i j}+\mathbf{F}_{j i}\right)+\sum_i \mathbf{F}_i^{\text {ext }}
+\end{aligned}
+\end{equation}
+Poich\`{e} dall'interazione di una i-esima particella con una j-esima e. viceversa sono identiche ma con verso opposto, in un sistema il suo stato dinamico \`{e} descritto solo dall'azione delle forze esterne
+\begin{equation}
+\sum_i \mathbf{F}_i=\mathbf{F}^{\mathrm{ext}}
+\end{equation}
+\`{E} comodo definire un punto privilegiato rispetto al quale in alcune categorie di problemi risulta essere pi\`{u} semplice la descrizione dello stato di moto, tale punto prende il nome di \textit{centro di massa} \textbf{R}
+\begin{equation}
+\mathbf{R}=\frac{\sum_i m_i \mathbf{r}_i}{M} \quad \text{dove} \quad M = \sum_{i} m_i
+\end{equation}
+utilizzando tale grandezza possiamo riscrivere la legge di Newton per un sistema di punti materiali come 
+\begin{equation}
+\mathbf{F}^{\mathrm{ext}}=M \ddot{\mathbf{R}}
+\end{equation}
+tale formula ci dice che per un sistema di particelle il centro di massa agisce come se tutta la massa del sistema fosse concentrata in tale punto e di conseguenza per determinare l'evoluzione dinamica \`{e} ininfluente la forma dell'oggetto.
+
+\subsection{Momenti per un sistema di particelle}
+
+Il momento totale \`{e} definito da $\bm{P} = \sum_{i}\bm{p}_i$ e utilizzando le formule precedenti si deriva che $\bm{F}^{ext} = \dot{\bm{P}}$. E dunque abbiamo che il momento di un sistema di punti materiali \`{e} una costante del moto se $\bm{F}^{ext} = 0$.
+
+Analogamente possiamo definire \textit{il momento angolare totale} come $\bm{L} = \sum_{i} \bm{L}_{i}$. L'evoluzione dinamica di tale grandezza \`{e} data da 
+\begin{equation}
+\begin{aligned}
+\dot{\mathbf{L}} & =\sum_i \mathbf{r}_i \times \dot{\mathbf{p}}_i \\
+& =\sum_i \mathbf{r}_i \times\left(\sum_{j \neq i} \mathbf{F}_{i j}+\mathbf{F}_i^{\text {ext }}\right) \\
+& =\sum_{i, j \text { with } i \neq j} \mathbf{r}_i \times \mathbf{F}_{j i}+\sum_i \mathbf{r}_i \times \mathbf{F}_i^{\text {ext }}
+\end{aligned}
+\end{equation}
+dove l'ultimo termine coincide con la forza torcente totale dovuta a una forza esterna 
+\begin{equation}
+	\bm{\tau}^{ext} = \sum_i \mathbf{r}_i \times \mathbf{F}_i^{\text {ext }}
+\end{equation}
+Vogliamo ricostruire la medesima relazione tra derivata totale del momento angolare e momento della forza ottenuta per un solo punto materiale, per farlo abbiamo bisogno che il primo termine si annulli, iniziamo con il riscriverlo come 
+\begin{equation}
+\sum_{i<j}\left(\mathbf{r}_i-\mathbf{r}_j\right) \times \mathbf{F}_{i j}
+\end{equation}
+tale addendo dell'equazione (1.16) si annulla solo se la forza d'interazione tra le particelle \`{e} parallela alla direzione della loro congiungente. Se tale condizione \`{e} verificata possiamo dire che il momento angolare \`{e} conservato se $\bm{\tau}^{ext} = 0$ e dunque $\bm{L}$ \`{e} una costante del moto.
+
+\subsection{Energia per un sistema di particelle}
+
+L'energia cinetica totale di un sistema di particelle \`{e} data da $T = \frac{1}{2} \sum_i m_i \dot{\bm{r}}_i^2$. Il vettore di posizione possiamo decomporlo come 
+\begin{equation}
+	r_i = R + \tilde{\bm{r}}_i
+\end{equation}
+
+dove $\tilde{\bm{r}}_i$ \`{e} la distanza del punto materiale dal centro di massa. Di conseguenza possiamo scrivere l'energia cinetica totale come 
+\begin{equation}
+T=\frac{1}{2} M \dot{\mathbf{R}}^2+\frac{1}{2} \sum_i m_i \dot{\tilde{\mathbf{r}}}_i^2
+\end{equation}
+tale formula ci dice che l'energia cinetica del sistema \`{e} costituita da due contributi, uno \`{e} l'energia cinetica del centro di massa e l'altra parte \`{e} \textit{l'energia interna} che descrive come il sistema di muove rispetto al centro di massa. Per una singola particella la variazione dell'energia cinetica totale \`{e} data da 
+\begin{equation}
+T\left(t_2\right)-T\left(t_1\right)=\sum_i \int \mathbf{F}_i^{\mathrm{ext}} \cdot d \mathbf{r}_i+\sum_{i \neq j} \int \mathbf{F}_{i j} \cdot d \mathbf{r}_i
+\end{equation}
+Affinch\`{e} si abbia la conservazione dell'energia \`{e} necessario che le forze siano conservative. In questo caso abbiamo bisogno che 
+\begin{itemize}
+	\item Le forze esterne sono conservative $\mathbf{F}_i^{\text {ext }}=-\nabla_i V_i\left(\mathbf{r}_1, \ldots, \mathbf{r}_N\right)$
+	\item Le forze interne sono conservative $\mathbf{F}_{i j}=-\nabla_i V_{i j}\left(\mathbf{r}_1, \ldots, \mathbf{r}_N\right)$ 
+\end{itemize}
+Affinch\`{e} il principio di azione e reazione $\bm{F}_{ij} = - \bm{F}_{ji}$ sia preservato e le forze siano parallele a $(\bm{r}_i -\bm{r}_j)$, abbiamo bisogno che $V_{ij} = V_{ji}$ dove 
+\begin{equation}
+V_{i j}\left(\mathbf{r}_1, \ldots \mathbf{r}_N\right)=V_{i j}\left(\left|\mathbf{r}_i-\mathbf{r}_j\right|\right)
+\end{equation}
+ovvero $V_{ij}$ dipende solo dalla distanza tra l'i-esimo punto e il j-esimo. Inoltre abbiamo bisogno che il potenziale di una forza esterna $V_i(\bm{r}_i)$ dipenda solo dalla posizione della particella i-esima e non dalla posizione degli altri punti. Dunque \textit{l'energia potenziale totale} \`{e} data da 
+\begin{equation}
+V=\sum_i V_i+\sum_{i<j} V_{i j}
+\end{equation}
+e l'energia E = T + V risulta essere una quantit\`{a} conservata e dunque una costante del moto.
+
+
