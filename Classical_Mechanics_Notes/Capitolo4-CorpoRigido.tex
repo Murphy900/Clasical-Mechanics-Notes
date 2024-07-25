@@ -481,7 +481,46 @@ il sistema di equazioni 4.52 dunque pu\`{o} essere riscritto come
 tali relazioni prendono il nome di \textbf{equazioni di Eulero}  e dipendono dalla geometria del corpo rigido.	
 \subsection{Ellissoide di Poinsot}
 L'ellissoide di Poinsot \`{e} un metodo geometrico che ci permette di visualizzare il moto di un corpo rigido libero, ipotizzando di avere quattro costanti, date dall'energia cinetica e le tre componenti del momento angolare espresse rispetto a sistema di riferimento del laboratorio.
+\newline
 
+Rispetto al sistema solidale abbiamo due costanti del moto: l'energia cinetica e l'intensit\`{a} del momento angolare $\bm{L}^2$. Rispetto alle velocit\`{a} angolari sono esprimibili come
+
+\begin{equation}
+	\begin{array}{l}
+		2T = I_1 \omega_1^2 + I_2 \omega_2^2+I_3\omega_3^2 \\
+		\bm{L}^2 = I_1^2 \omega_1^2 + I_2^2 \omega_2^2+I_3^2 \omega_3^2 
+	\end{array}
+\end{equation}
+ciascuna di queste equazioni definisce un ellissoide nello spazio $\omega$. Il moto del vettore $\omega$ \`{e} vincolato a giacere nell'intersezione dei due ellissoidi. La prima equazione di 4.55 \`{e} esprimibile come 
+\begin{equation}
+\frac{I_1}{2 T} \omega_1^2+\frac{I_2}{2 T} \omega_2^2+\frac{I_3}{2 T} \omega_3^2=1
+\end{equation}
+ed \`{e} conosciuta come l'equazione dell'\textbf{ellisoide d'inerzia}.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{poins}
+  \end{center}
+  \caption{}
+\end{wrapfigure}
+\noindent l'ellissoide d'inezia viene rappresentato nella figura 4.1, dove $I_1 > I_2 > I_3$ e dunque l'asse maggiore \`{e} dato da $\omega_3$ e quello minore da $\omega_1$. Le linee in figura sono i luoghi d'intersezione dell'ellissoide d'inerzia con gli altri ellissoidi, definiti dalla seconda equazione in 4.55, per diversi valori di $\bm{L}^2$. Dato che questi ultimi hanno gli stessi assi dell'ellissoide d'inerzia, le linee d'intersezione sono piccole circonferenze attorno agli assi $
+\omega_1$ e $\omega_3$ e due linee passati attraverso l'asse $\omega_2$. Per T e $\bm{L}^2$ fissati, il vettore $\bm{\omega}$ si muove lungo una delle linee d'intersezione. Dalla figura si osserva che i cammini percorsi da $\bm{\omega}$ sono sempre chiusi e il moto del corpo \`{e} periodico. \newline
+
+\noindent Rispetto al sistema del laboratorio il vettore $\bm{L}$ \`{e} una costante del moto. Dato che l'energiacinetica $2T = \bm{L} \cdot \bm{\omega}$ \`{e} anch'essa una costante, sappiamo che $\bm{\omega} $ appartiene ad un piano perpendicolare a $\bm{L}$. Tale luogo dello spazio \`{e} definito come \textbf{piano invariante}. L'ellissoide d'inerzia tocca il piano invariate  nel punto definito dalla velocit\`{a} angolare $\bm{\omega}$. Inoltre il piano invariante \`{e} sempre tangente all'ellissoide d'inerzia nel punto $\bm{\omega}$. Per verificarlo si osservi che il momento angolare pu`{o} essere scritto come 
+\begin{equation}
+	\bm{L} = \nabla_{\omega}T
+\end{equation}
+dove l'operatore di gradiente \`{e} definito rispetto lo spazio $\omega $, ovvero $\nabla_{\omega} = \left [ \frac{\partial }{\partial \omega_1}, \frac{\partial}{\partial \omega_2},\frac{\partial}{\partial \omega_3} \right ] $. Si ricordi che l'ellisoide d'inerzia \`{e} definito come la superficie di livello dell'energia cinetica T, dunque l'equazione 4.57, ci dice che il momento angolare $\bm{L}$ \`{e} sempre perpendicolare ad esso. Questo ci assicura che il pianto invariante \`{e} sempre tangete all'ellissoide.
+ 
+\begin{figure}[!ht]
+\vspace{0.1in}
+\includegraphics[width = 9cm]{elis_curve}	
+\centering
+\vspace{0.1in}
+\caption{Ellisoide d'inerzia che ruota lungo il piano invariante}
+\end{figure}
+In conclusione la velocit\`{a} angolare definisce due curve: Una sull'ellissoide d'inerzia, e prende il nome di curva di \textit{ polhode}, e l'altra sul piano invariate, e prende il nome di curva di \textit{herpolhode}. Il corpo si muove solidarmente all'ellissoide d'inerzia, che rotola attorno al piano invariante, con il centro dell'ellisoide a distanza costante dal piano. A differenza delle curve di polhode, le curve di herpolhode non sono necessariamente chiuse.
+\newpage 
 
 
 \section{Angoli di Eulero}
