@@ -5,7 +5,7 @@ The following notes are written in Italian and are based on the course of Classi
 
 > - The most important one is on page 84, the motivation that arise the necessity to introduce  the Langrange Dirichlet theorem are incorrect.
 
-> - At page 126, the Lagrange spinning top conclusion are too short and they could be explained better.
+> - At page 126, the Lagrange spinning top conclusion are too short and could be explained better.
 
 > - The three body problems at page 169 could be expanded better and the notation on the image sometimes doesn't match the one used in the discussion.  
 
