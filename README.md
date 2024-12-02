@@ -7,7 +7,7 @@ The following notes are written in Italian and are based on the course of Classi
 
 > - At page 126, the Lagrange spinning top conclusion are too short and they could be explained better.
 
-> - The three body problems at page 169 could be expanded better and the notation on the image sometimes doesn\'92t match the one used in the discussion.  
+> - The three body problems at page 169 could be expanded better and the notation on the image sometimes doesn't match the one used in the discussion.  
 
 
 In the "folder" there are two script for resolving newtonian dynamical systems. The one written in python is for SageMath and have convergence problem near the zeros of the contour plot curves. I suggest to use the one in mathematica notebook.
